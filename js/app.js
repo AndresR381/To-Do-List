@@ -1,6 +1,7 @@
 const addButton = document.getElementById('addBtn');
 const textInput = document.getElementById('textInput');
 const removeButton = document.getElementById('removeBtn')
+const listItem = document.getElementById('listItem')
 
 const tasks = []
 
@@ -12,7 +13,6 @@ addTask.forEach(addButton => {
 
         // make li.innerText = textInput.value
 
-        const listItem = document.getElementById('listItem')
         listItem.innerText = textInput.value
 
         console.log(tasks);
@@ -27,6 +27,9 @@ removeTask.forEach(removeButton => {
     removeButton.addEventListener('click', (e)=> {
         e.preventDefault
         tasks.shift(textInput.value)
+
+        removeButton.appendChild(listItem)
+        removeButton.removeChild(listItem)
         
         console.log(tasks);
     })
